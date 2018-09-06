@@ -1,0 +1,33 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Sabão em Pó",
+      "categoria": 1
+    },
+    {
+      "id": 2,
+      "nome": "Detergente",
+      "categoria": 1
+    },
+    {
+      "id": 3,
+      "nome": "Biscoito",
+      "categoria": 2
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "categoria": "Limpeza"
+    },
+    {
+      "id": 2,
+      "categoria": "Alimentos"
+    },
+    {
+      "id": 3,
+      "categoria": "Utilidades"
+    }
+  ]
+}
