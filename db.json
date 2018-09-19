@@ -11,9 +11,44 @@
       "categoria": 1
     },
     {
-      "id": 3,
-      "nome": "Biscoito",
-      "categoria": 2
+      "nome": "Amaciante",
+      "categoria": "1",
+      "id": 4
+    },
+    {
+      "nome": "Alcatra",
+      "categoria": "2",
+      "id": 5
+    },
+    {
+      "nome": "Picanha",
+      "categoria": "2",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "nome": "Mouse",
+      "categoria": "3"
+    },
+    {
+      "nome": "Teclado",
+      "categoria": "3",
+      "id": 8
+    },
+    {
+      "nome": "Papel Higiênico",
+      "categoria": "1",
+      "id": 9
+    },
+    {
+      "nome": "Sabonete",
+      "categoria": "1",
+      "id": 14
+    },
+    {
+      "nome": "Água",
+      "categoria": "4",
+      "id": 15
     }
   ],
   "categorias": [
@@ -28,6 +63,10 @@
     {
       "id": 3,
       "categoria": "Utilidades"
+    },
+    {
+      "categoria": "Bebidas",
+      "id": 4
     }
   ]
 }

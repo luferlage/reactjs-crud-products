@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 
 import ProdutosHome from './ProdutosHome'
+import ProdutosNovo from './ProdutosNovo'
+import ProdutosEditar from './ProdutosEditar'
 import Categoria from './Categoria'
 
 class Produtos extends Component{
@@ -43,14 +45,14 @@ class Produtos extends Component{
             }
                 {this.state.editingCategoria !== cat.id && 
                     <div>
-                    <Link to={`/produtos/categoria/${cat.id}`}>{cat.categoria}</Link>
-                    <button className='btn btn-sm' onClick={()=>this.props.removeCategoria(cat)}>
-                        <span className='glyphicon glyphicon-remove'></span>
-                    </button>
-                    <button className='btn btn-sm' onClick={()=>this.editCategoria(cat)}>
-                        <span className='glyphicon glyphicon-edit'></span>
-                    </button>
-                </div>
+                        <Link to={`/produtos/categoria/${cat.id}`}>{cat.categoria}</Link>
+                        <button className='btn btn-sm' onClick={()=>this.props.removeCategoria(cat)}>
+                            <span className='glyphicon glyphicon-remove'></span>
+                        </button>
+                        <button className='btn btn-sm' onClick={()=>this.editCategoria(cat)}>
+                            <span className='glyphicon glyphicon-edit'></span>
+                        </button>
+                    </div>
                 }
             </li>
         )
@@ -91,11 +93,36 @@ class Produtos extends Component{
                             placeholder="Nova Categoria" />
                     </div>
                     {/*JSON.stringify(this.state.categorias)*/}
+                    <Link to='/produtos/novo'>Novo produto</Link>
                 </div>
                 <div className='col-md-10'>
                     <h1>Produtos</h1>
                     <Route exact path={match.url} component={ProdutosHome} />
-                    <Route exact path={match.url+'/categoria/:catId'} component={Categoria} />
+                    <Route exact path={match.url+'/novo'} 
+                        render={ (props) => {
+                            return <ProdutosNovo {...props} 
+                            categorias={categorias}
+                            createProduto={this.props.createProduto}
+                            />
+                        }}/>
+                    <Route path={match.url+'/categoria/:catId'} 
+                        render={(props)=> {
+                            return <Categoria {...props} 
+                                        loadProdutos={this.props.loadProdutos}
+                                        loadCategoria={this.props.loadCategoria}
+                                        produtos={this.props.produtos}
+                                        categoria={this.props.categoria}
+                                        removeProduto={this.props.removeProduto}/>
+                        }} /> 
+                    <Route path={match.url+'/editar/:id'}
+                            render={(props) => {
+                                return <ProdutosEditar {...props}
+                                            categorias={categorias}
+                                            readProduto={this.props.readProduto}
+                                            editProduto={this.props.editProduto}
+                                        />
+                            }}      
+                    />
                 </div>
             </div>
         )
